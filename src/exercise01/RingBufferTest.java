@@ -9,7 +9,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
- * @author martin
+ * @author Team12 (Mayer, Pfoser)
  *
  */
 public class RingBufferTest {
@@ -27,6 +27,18 @@ public class RingBufferTest {
 	public void testRingBufferUnderflow() throws RingBufferException {
 		RingBuffer<String> buffer = new RingBuffer<String>(SIZE);
 		buffer.dequeue(); // should throw RingBufferException
+	}
+	
+	@Test
+	public void testRingBufferOverflow() {
+		RingBuffer<String> buffer = new RingBuffer<String>(SIZE);
+		for (int i = 0; i < SIZE * 2; ++i) {
+			try {
+				buffer.enqueue("ItemXYZ");
+			} catch (RingBufferException e) {
+				fail("Unexpected Buffer overflow");
+			}
+		}
 	}
 	
 	@Test
