@@ -161,35 +161,4 @@ public class RingBufferTest {
     public void testRingBufferIteratorImproperUse() throws RingBufferException {
         emptyBuffer.iterator().next();
     }
-
-    // this test does not make that much sense, does it?
-    // above, I wrote a slightly altered test...
-//	@Test
-//	public void testRingBufferOverflow() {
-//		RingBuffer<String> emptyBuffer = new RingBuffer<>(SIZE);
-//		for (int i = 0; i < SIZE * 2; ++i) {
-//			try {
-//				emptyBuffer.enqueue("ItemXYZ");
-//			} catch (RingBufferException e) {
-//				fail("Unexpected Buffer overflow");
-//			}
-//		}
-//	}
-
-    // this test is somehow already covered by the overflow test...
-    // I don't really see the point of testing it separately
-//    @Test
-//    public void testFillRingBuffer() {
-//        String element = "item";
-//        for (int i = 1; i < SIZE; ++i) {
-//            try {
-//                emptyBuffer.enqueue(element + i);
-//                assertEquals(i, emptyBuffer.size());
-//            } catch (RingBufferException e) {
-//                // should not occur
-//                fail("Unexpected Buffer Overflow");
-//            }
-//        }
-//    }
-
 }
