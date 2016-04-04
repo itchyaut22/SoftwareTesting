@@ -50,7 +50,7 @@ import at.archkb.server.test.objectcloner.ObjectCloner;
  * ArchProfileService provides CRUD-Functionality for Architecture Profiles with
  * the Graph-Database Neo4j
  * 
- * @author Benjamin
+ * @author Team12 (Mayer, Pfoser, Hoedt)
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
