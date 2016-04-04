@@ -1,4 +1,4 @@
-package at.archkb.server.test.neo4j;
+package at.archkb.server.service.archprofile;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -40,10 +40,8 @@ import at.archkb.server.entity.QualityAttribute;
 import at.archkb.server.entity.Tradeoff;
 import at.archkb.server.entity.TradeoffItem;
 import at.archkb.server.exception.OptimisticLockingException;
-import at.archkb.server.service.archprofile.ArchProfileService;
 import at.archkb.server.service.user.UserService;
-import at.archkb.server.test.objectcloner.ObjectCloner;
-
+import objectcloner.ObjectCloner;
 /**
  * Unittest class for the class:
  * at.archkb.server.service.archprofile.ArchProfileService(Impl)

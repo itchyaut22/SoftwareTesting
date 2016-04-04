@@ -1,4 +1,4 @@
-package at.archkb.server.test.objectcloner;
+package objectcloner;
 
 import java.io.*;
 import java.util.*;
