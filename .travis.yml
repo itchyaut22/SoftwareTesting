@@ -1,0 +1,26 @@
+os: linux
+language: r
+sudo: required
+branches:
+  except:
+    - master
+before_install:
+- tlmgr install german
+script:
+- cd ..
+- git clone https://github.com/itchyaut22/HowTo-Deploy-LaTeX-Documents.git md2latex
+- cd $TRAVIS_BUILD_DIR
+- var1=`ls _doc/ | grep 'team12-assignment*'`
+- var2=`echo $var1 | sed s/"md"/"pdf"/g`
+- pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/../md2latex/templates --data-dir=$TRAVIS_BUILD_DIR/../md2latex --template=default.tex -o $var2 _doc/$var1
+after_success: 
+deploy:
+  api-key:
+    secure: JZkHqlyJdTfw6CxtB1+OX5VvRyjeLyN77BaQwM0RcaUvBe2JtF1WyYIyFFmMFFJ/JM+xtAgTAjJM0eu87CwMVui+3OECD+S6Q2GFI4A+5P6fysPohj+Mx/mcLf/LM+KwI0JErrdWyjVDLddKnen+Mc/mXdyuWLOjMbTalu7EiVNUVWhP/fqM25vHIoR1Gn3OMy9rixBi3rjTEVegg3ZkP1R8l7akc9mI1PPzJ7ms9xq+7fUruPSS+4V2zh4OwNKGFFEYVRfKcsZt89+Vs19bEhXhS+cKCR5Xixn0vv/N3kUUhbPIIs6lOCFZwCCRmIfox1oNNteqGtconImrPI6B9q3xR8zogm+vWd3FYRBk47pakL/VzxH1AwPkwleQDFgp43VHgKngbdDq/nLCQr2CscbvYYx6fvOePqEvFVnZW5RATQs5F/TxEO+wsErdjrrvpWbFULiy6Ap5VnKTwUGsRMBIlZwc9MUw09rMTX71SIGn2QvgsS3M8Y4yVoEa2V2XS09m3ekU3B+j9FmnvqlkdBhAnJIS0n6//yZn1DPpEU8Z/lclEepcERFr3yiU00Zn0vrQVjEI5arxHEGJDrJCBwDXGBd7eE6RS9ozeC5reMRpe4XNuoxC8rdrQGfwJUrTd1S3E6oIDIukWnW1ekvPVu42l5uNa9+0E1z8t2Cxt6w=
+  provider: releases
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: itchyaut22/SoftwareTesting
+  file: 
+    - $var2
