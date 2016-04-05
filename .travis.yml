@@ -3,7 +3,7 @@ language: r
 sudo: required
 branches:
   except:
-    - master
+  - master
 before_install:
 - tlmgr install german
 script:
@@ -12,11 +12,12 @@ script:
 - cd $TRAVIS_BUILD_DIR
 - var1=`ls _doc/ | grep 'team12-assignment*'`
 - var2=`echo $var1 | sed s/"md"/"pdf"/g`
-- pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/../md2latex/templates --data-dir=$TRAVIS_BUILD_DIR/../md2latex --template=default.tex -o $var2 _doc/$var1
+- pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/../md2latex/templates
+  --data-dir=$TRAVIS_BUILD_DIR/../md2latex --template=default.tex -o $var2 _doc/$var1
 after_success: 
 deploy:
   api-key:
-    secure: JZkHqlyJdTfw6CxtB1+OX5VvRyjeLyN77BaQwM0RcaUvBe2JtF1WyYIyFFmMFFJ/JM+xtAgTAjJM0eu87CwMVui+3OECD+S6Q2GFI4A+5P6fysPohj+Mx/mcLf/LM+KwI0JErrdWyjVDLddKnen+Mc/mXdyuWLOjMbTalu7EiVNUVWhP/fqM25vHIoR1Gn3OMy9rixBi3rjTEVegg3ZkP1R8l7akc9mI1PPzJ7ms9xq+7fUruPSS+4V2zh4OwNKGFFEYVRfKcsZt89+Vs19bEhXhS+cKCR5Xixn0vv/N3kUUhbPIIs6lOCFZwCCRmIfox1oNNteqGtconImrPI6B9q3xR8zogm+vWd3FYRBk47pakL/VzxH1AwPkwleQDFgp43VHgKngbdDq/nLCQr2CscbvYYx6fvOePqEvFVnZW5RATQs5F/TxEO+wsErdjrrvpWbFULiy6Ap5VnKTwUGsRMBIlZwc9MUw09rMTX71SIGn2QvgsS3M8Y4yVoEa2V2XS09m3ekU3B+j9FmnvqlkdBhAnJIS0n6//yZn1DPpEU8Z/lclEepcERFr3yiU00Zn0vrQVjEI5arxHEGJDrJCBwDXGBd7eE6RS9ozeC5reMRpe4XNuoxC8rdrQGfwJUrTd1S3E6oIDIukWnW1ekvPVu42l5uNa9+0E1z8t2Cxt6w=
+    secure: pAGM0WbF+/Xo8x4AS5ZwpM0NVoRj4YtbvBFHcc2zYprcc6Nh/9VS3XC4cCJHnoAUA3/L8k8cfaK7T/d/9Tv92VzSybhu2A3CMQP86G15aHn0tY+HL6BbXZ5nP2IV3spzughPouc7gVBuEeoNaTClduNwT6soD65QlEc9mrgU2UMjGRqrouXpMpoqhmi+1H6XU+qOT2DiudIniQ8n/XaOSI6vgebok9orVNAqlG+Qja4yYgnpQSKF68yPY8Tx7APbD7R9DnHqvx6v3Aaz+LRmla2WNXRdKShOteaGPm8AWAvySENfBG51SSNGlHj2bhKIpt3G1cOXOtULNWpKGT/ufdJCuincSbxlBSTJ1jpsh3YQduz2sE7bWnKyIlkJqOWH4Nd+hl0W9oJTZQeY4ypwqiS/YWthyfwcmplJktFFebmjmpG43sZUle3iWPWSSgjMf/8kARfmUXOAWK6z7QP/2/4mU0qmFATBRmFZGrpLCTEkoyRbPs6FstbijuxR/Nb28lmpiDjjzRoY9o/zquY4aKE4RQrJOf5oZAPmc6xaGP8CU2iXGIQ6SL9WrNtTs48eOJio/0tpHSmmrx/7gaOhjzEVVczqw8R8BaUBqQ9mhr4Kh+0BlaRjThwqoGZE1t7xK0LYSWlptXs3vgHyVtDzHSIMwBSIRggo8pTx5pIg0BU=
   provider: releases
   skip_cleanup: true
   on:
