@@ -9,7 +9,11 @@ before_install:
 - cd _doc
 - git clone https://github.com/itchyaut22/HowTo-Deploy-LaTeX-Documents.git md2latex
 - cd md2latex
+- pwd
+- ls -al
 script:
+- pwd
+- ls -al
 - var1=`ls _doc/ | grep 'team12-assignment*'`
 - var2=`echo $var1 | sed s/"md"/"pdf"/g`
 - pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/_doc/md2latex/templates
