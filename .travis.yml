@@ -20,9 +20,9 @@ script:
 - var1=`ls | grep 'team12-assignment*'`
 - var2=`echo $var1 | sed s/"md"/"pdf"/g`
 - echo $TRAVIS_BUILD_DIR
-- cd ..
 - pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/_doc/md2latex/templates
-  --data-dir=$TRAVIS_BUILD_DIR/_doc/md2latex --template=default.tex -o $var2 _doc/$var1
+  --data-dir=$TRAVIS_BUILD_DIR/_doc/md2latex --template=default.tex -o ../$var2 _doc/$var1
+- cd ..
 after_success: 
 deploy:
   api-key:
