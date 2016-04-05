@@ -6,14 +6,14 @@ branches:
   - master
 before_install:
 - tlmgr install german
-script:
-- cd ..
+- cd _doc
 - git clone https://github.com/itchyaut22/HowTo-Deploy-LaTeX-Documents.git md2latex
-- cd $TRAVIS_BUILD_DIR
+- cd md2latex
+script:
 - var1=`ls _doc/ | grep 'team12-assignment*'`
 - var2=`echo $var1 | sed s/"md"/"pdf"/g`
-- pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/../md2latex/templates
-  --data-dir=$TRAVIS_BUILD_DIR/../md2latex --template=default.tex -o $var2 _doc/$var1
+- pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/_doc/md2latex/templates
+  --data-dir=$TRAVIS_BUILD_DIR/_doc/md2latex --template=default.tex -o $var2 _doc/$var1
 after_success: 
 deploy:
   api-key:
