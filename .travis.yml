@@ -6,24 +6,21 @@ branches:
   - master
 before_install:
 - tlmgr install german
-- dirBackup=`pwd`
+- sudo apt-get install -y zip
 - cd _doc
 - git clone https://github.com/itchyaut22/HowTo-Deploy-LaTeX-Documents.git md2latex
 - cd md2latex
-- sudo apt-get install -y zip
 script:
 - cd ..
 - var1=`ls | grep 'team12-assignment*'`
 - var2=`echo $var1 | sed s/"md"/"pdf"/g`
 - var3=`echo $var1 | sed s/"md"/"zip"/g`
 - pandoc --toc -N config.yaml --latex-engine=xelatex -V mPath=$TRAVIS_BUILD_DIR/_doc/md2latex/templates
-  --data-dir=$TRAVIS_BUILD_DIR/_doc/md2latex --template=default.tex -o ../test22.pdf team12-assignment01.md
+  --data-dir=$TRAVIS_BUILD_DIR/_doc/md2latex --template=default.tex -o ../$var2 $var1
 - cd ..
-after_success: 
-before-deploy:
 - rm -rf _doc
-- ls -al
-- find $TRAVIS_BUILD_DIR -path '*.*/.*' -prune -o -type f -print | zip $TRAVIS_BUILD_DIR/$var3 -@
+- zip -r $var3 . -x */\.* *.git* \.* *.zip *.csv *.json *.rb *.bak *.swp *.back *.merge *.sh
+after_success: 
 deploy:
   api-key:
     secure: pAGM0WbF+/Xo8x4AS5ZwpM0NVoRj4YtbvBFHcc2zYprcc6Nh/9VS3XC4cCJHnoAUA3/L8k8cfaK7T/d/9Tv92VzSybhu2A3CMQP86G15aHn0tY+HL6BbXZ5nP2IV3spzughPouc7gVBuEeoNaTClduNwT6soD65QlEc9mrgU2UMjGRqrouXpMpoqhmi+1H6XU+qOT2DiudIniQ8n/XaOSI6vgebok9orVNAqlG+Qja4yYgnpQSKF68yPY8Tx7APbD7R9DnHqvx6v3Aaz+LRmla2WNXRdKShOteaGPm8AWAvySENfBG51SSNGlHj2bhKIpt3G1cOXOtULNWpKGT/ufdJCuincSbxlBSTJ1jpsh3YQduz2sE7bWnKyIlkJqOWH4Nd+hl0W9oJTZQeY4ypwqiS/YWthyfwcmplJktFFebmjmpG43sZUle3iWPWSSgjMf/8kARfmUXOAWK6z7QP/2/4mU0qmFATBRmFZGrpLCTEkoyRbPs6FstbijuxR/Nb28lmpiDjjzRoY9o/zquY4aKE4RQrJOf5oZAPmc6xaGP8CU2iXGIQ6SL9WrNtTs48eOJio/0tpHSmmrx/7gaOhjzEVVczqw8R8BaUBqQ9mhr4Kh+0BlaRjThwqoGZE1t7xK0LYSWlptXs3vgHyVtDzHSIMwBSIRggo8pTx5pIg0BU=
