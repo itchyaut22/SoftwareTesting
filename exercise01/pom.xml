@@ -4,7 +4,7 @@
 <artifactId>Assignment02-Team12-exercise01</artifactId>
 <version>0.0.1-SNAPSHOT</version>
 <properties>
-    <org.jacoco.version>0.7.5.201505241946</org.jacoco.version>
+    <org.jacoco.version>0.7.6.201602180812</org.jacoco.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>
 <build>
