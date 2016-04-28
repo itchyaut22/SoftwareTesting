@@ -1,4 +1,7 @@
-# Assignment Part A: Coverage Analysis for RingBuffer
+# Assignment Part A: Random Test Case Generation for RingBuffer
+
+# Assignment Part B: Model-based Testing for RingBuffer
+
 
 For this assignment, we used *JaCoCo*[^1] as the Code Coverage library. In our first assignment, we used *Maven*[^2] as our dependency management tool. We kept Maven and used the same project structure for the current assignment. Therefore, we used the *jacoco-maven-plugin* in our `pom.xml` file.
 
