@@ -49,6 +49,7 @@ public class RingBufferModelWithAdaptor implements FsmModel {
 	public void enqueue() throws RingBufferException {
 		Assert.assertEquals(ringbuffer.size(), counter);
 		String expectedException = null;
+		RingBufferException ringBufferException = null;
 		if (maxSize == ringbuffer.size()) {
 			expectedException = "Ring buffer overflow";
 		}
@@ -59,9 +60,13 @@ public class RingBufferModelWithAdaptor implements FsmModel {
 			Assert.assertFalse(ringbuffer.isEmpty());
 			Assert.assertTrue(ringbuffer.size()>0);
 		} catch (RingBufferException e) {
+			ringBufferException = e;
 			Assert.assertEquals(e.getMessage(), expectedException);
 			Assert.assertEquals(ringbuffer.size(), maxSize);
 			Assert.assertEquals(counter, maxSize);
+		}
+		if(expectedException!=null){
+			Assert.assertNotNull(ringBufferException);
 		}
 	}
 
@@ -69,6 +74,7 @@ public class RingBufferModelWithAdaptor implements FsmModel {
 	public void dequeue() throws RingBufferException {
 		Assert.assertEquals(ringbuffer.size(), counter);
 		String expectedException = null;
+		RingBufferException ringBufferException = null;
 		if (ringbuffer.isEmpty()) {
 			expectedException = "Ring buffer underflow";
 		}
@@ -78,10 +84,14 @@ public class RingBufferModelWithAdaptor implements FsmModel {
 			Assert.assertEquals(ringbuffer.size(), counter);
 			Assert.assertTrue(ringbuffer.size()<maxSize);
 		} catch (RingBufferException e) {
+			ringBufferException = e;
 			Assert.assertEquals(e.getMessage(), expectedException);
 			Assert.assertTrue(ringbuffer.isEmpty());
 			Assert.assertEquals(ringbuffer.size(), 0);
 			Assert.assertEquals(counter, 0);
+		}
+		if(expectedException!=null){
+			Assert.assertNotNull(ringBufferException);
 		}
 	}
 
