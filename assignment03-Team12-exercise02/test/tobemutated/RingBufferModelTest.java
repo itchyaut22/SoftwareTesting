@@ -22,7 +22,7 @@ public class RingBufferModelTest extends TestCase {
 	    tester.addCoverageMetric(new TransitionCoverage());
 	    tester.addListener(new VerboseListener());
 	    tester.addListener(new StopOnFailureListener());
-	    tester.generate(100);
+	    tester.generate(1000);
 	    tester.printCoverage(); // print the model coverage information
 	  }
 

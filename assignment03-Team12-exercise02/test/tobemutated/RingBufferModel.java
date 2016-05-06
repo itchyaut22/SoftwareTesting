@@ -14,6 +14,9 @@ public class RingBufferModel implements FsmModel {
      */
     private static final String ELEMENT = "item";
     
+    /**
+     * ringbuffer object under test
+     */
     private RingBuffer<String> ringbuffer;
     
     /**
@@ -37,6 +40,10 @@ public class RingBufferModel implements FsmModel {
 		return State.Filled+"("+ringbuffer.size()+")";
 	}
 	
+	/**
+	 * calls the enque methode of the ringbuffer
+	 * @throws RingBufferException
+	 */
 	@Action 
 	public void enqueue() throws RingBufferException{
 		ringbuffer.enqueue(ELEMENT);
@@ -50,6 +57,10 @@ public class RingBufferModel implements FsmModel {
 		return !(maxSize==ringbuffer.size());
 	}
 	
+	/**
+	 * calls the dequeue methode of the ringbuffer
+	 * @throws RingBufferException
+	 */
 	@Action
 	public void dequeue() throws RingBufferException{
 		ringbuffer.dequeue();

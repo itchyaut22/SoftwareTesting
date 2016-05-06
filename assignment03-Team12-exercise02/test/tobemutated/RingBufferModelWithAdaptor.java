@@ -14,7 +14,10 @@ public class RingBufferModelWithAdaptor implements FsmModel {
 	 * tests were designed assuming that this element is not {@code null}.
 	 */
 	private static final String ELEMENT = "item";
-
+	
+    /**
+     * ringbuffer object under test
+     */
 	private RingBuffer<String> ringbuffer;
 
 	/**
@@ -44,7 +47,11 @@ public class RingBufferModelWithAdaptor implements FsmModel {
 		}
 		return State.Filled + "(" + ringbuffer.size() + ")";
 	}
-
+	
+	/**
+	 * calls the enque methode of the ringbuffer and checks for right behaviour
+	 * @throws RingBufferException
+	 */
 	@Action
 	public void enqueue() throws RingBufferException {
 		Assert.assertEquals(ringbuffer.size(), counter);
@@ -69,7 +76,11 @@ public class RingBufferModelWithAdaptor implements FsmModel {
 			Assert.assertNotNull(ringBufferException);
 		}
 	}
-
+	
+	/**
+	 * calls the enque methode of the ringbuffer and checks for right behaviour
+	 * @throws RingBufferException
+	 */
 	@Action
 	public void dequeue() throws RingBufferException {
 		Assert.assertEquals(ringbuffer.size(), counter);
