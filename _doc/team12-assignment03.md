@@ -55,7 +55,7 @@ In order to check if the model would find failures in the ringbuffer as well, we
 All these bugs were successfully recognised by the model.
 
 ### Code coverage
-For the coverage analysis, we used *JaCoCo*[^1] again.
+For the coverage analysis, we used *JaCoCo*[1] again.
 
 First we tested the model with zero testcases and it can be seen that `dequeue()` nor `enqueue()` was executed.
 ![Coverage Check 0 Test Cases](images/02_0.PNG)
