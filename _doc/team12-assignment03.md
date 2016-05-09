@@ -4,7 +4,7 @@ For this part of the assignment, we used *Randoop* as the test case generator. W
 
 For the coverage analysis, we used *JaCoCo*[1] again.
 
-## Question 1 
+### Question 1 
 
 > Increase the time limit for test generation step by step to, for example, 20 seconds, 30 sec., 60 sec., 120 sec., etc. Measure the code coverage of the generated test cases for each generated set of tests. At what point do you reach the maximum coverage (plateau) where more generation time does not lead to an increase of coverage? What is the maximum coverage?
 
@@ -28,7 +28,7 @@ The table below summarises the code coverage and mutation score for the differen
 
 From this table it seems that there is no upper bound for the coverage in this case. There seems to be some kind of plateau at 3 seconds, but this is probably just because the time differences are too small, but when increasing the time for randoop, it turns out that the maximum coverage that can be achieved is 100%. Generating tests for longer than 20 seconds does not make sense, because from there on, both the coverage and the mutation score are 100%. Although we might have expected that hundred percent coverage is quasi impossible, it seems reasonable that this is nevertheless possible in such a simple case as the `RingBuffer`.
 
-## Question 2
+### Question 2
 
 > Does the achieved coverage and mutation score imply that the tested class is correct? Discuss this question in your group and explain why or why not.
 
@@ -36,37 +36,37 @@ With testing it is never possible to verify that a program is correct. The only 
 
 # Assignment Part B: Model-based Testing for RingBuffer
 
-To Include the ModelJUnit libray we are using a maven dependency.
+To Include the ModelJUnit library we are using a maven dependency.
 
 ## Simple Model
 
-In the first step we created a test model for the RingBuffer. In this model we override the getState methode. This methode returns a String represention of the states Full, Empty and Filled of the RingBuffer.
-We also override the reset method which resets the RingBuffer with a random maximum size between 1 and 10. Afterwards we defined the actions for enque and deque of the Ringbuffer. In this Simple Model we also
-defined Guards for those methodes to ensure that enque is only called when the RingBuffer is not full and that dequeue is only called when the RingBuffer is not empty.
+In the first step we created a test model for `RingBuffer`. In this model we override the `getState()` method. This method returns a `String` represention of the states Full, Empty and Filled of the ringbuffer.
+We also override the `reset()` method which resets the buffer with a random maximum size between 1 and 10. Afterwards we defined the actions for `enque()` and `deque()` of the buffer. In this Simple Model we also
+defined Guards for those methodes to ensure that `enque()` is only called when the buffer is not full and that `dequeue()` is only called when the buffer is not empty.
 The results of the model execution can be found in the output folder.
 
 ## Model with Adapter
 
-In a second step we adapted the Simple Model. We introduced a counter variable to check if the amount of objects in the Ringbuffer is correct. We deleted the guards to also get not allowed transitions which throws exceptions to also test this behaviour.
-For the dequeue and enqueue methods we provided assertions to check for right behaviour of the ringbuffer. The results of the model execution can be found in the output folder.
+In a second step we adapted the Simple Model. We introduced a counter variable to check if the amount of objects in the ringbuffer is correct. We deleted the guards to also get not allowed transitions which throws exceptions to also test this behaviour.
+For the `dequeue()` and `enqueue()` methods we provided assertions to check for right behaviour of the ringbuffer. The results of the model execution can be found in the output folder.
 
 ### Failure detection
-To also check if the model would find failures in the ringbuffer we introduced bugs. We tested model the following bugs: commenting out incrementation of N, commenting out decrementation of N, commenting out setting of first, commenting out setting of last.
-All this bugs were successfully recognised by the model.
+In order to check if the model would find failures in the ringbuffer as well, we introduced bugs. We tested the model with the following bugs: commenting out incrementation of `N`, commenting out decrementation of `N`, commenting out setting of first, commenting out setting of last.
+All these bugs were successfully recognised by the model.
 
 ### Code coverage
 For the coverage analysis, we used *JaCoCo*[^1] again.
 
-First we tested the model with zero testcases and it can be seen that neither dequeue nor enqueue was executed.
+First we tested the model with zero testcases and it can be seen that `dequeue()` nor `enqueue()` was executed.
 ![Coverage Check 0 Test Cases](images/02_0.PNG)
 
-Afterwards we tested the model with one testcases which executes the dequeue methode and it can be seen that the dequeue method is not fully covered sinc only the exception case was executed
+Afterwards we tested the model with one testcases which executes the `dequeue()` method and it can be seen that the `dequeue()` method is not fully covered since only the exception case was executed
 ![Coverage Check 0 Test Cases](images/02_1.PNG)
 
-Afterwards we tested the model with 5 testcases and it can be seen that the dequeue is fully covered while enque is only partially covered since the enqueue methode with a full ringbuffer (=exception case) is never executed
+Afterwards we tested the model with 5 testcases and it can be seen that `dequeue()` is fully covered while `enque()` is only partially covered since the `enqueue()` method with a full ringbuffer (=exception case) is never executed
 ![Coverage Check 0 Test Cases](images/02_5.PNG)
 
-Afterwards we tested the model with 20 testcases and it can be seen that the dequeue and enqueue is fully covered. So it does not make sense to make further coverage tests since more test cases can not increase the coverage.
+Afterwards we tested the model with 20 testcases and it can be seen that both `dequeue()` and `enqueue()` are fully covered. So it does not make sense to make further coverage tests since more test cases cannot increase the coverage.
 ![Coverage Check 0 Test Cases](images/02_20.PNG)
 
 
