@@ -1,37 +1,42 @@
 # Assignment Part A: Random Test Case Generation for RingBuffer
 
-For this part of the assignment, we used *Randoop* as the test case generator. We created test cases for different time spans (10s, 30s, 60s, 120s, 240s, 300s and 360s). The generated test cases are part of the submission. The randoop output files can be found under the `randoop` folder.
+For this part of the assignment, we used *Randoop* as the test case generator. We created test cases for different time spans (1s, 2s, 3s, 4s, 5s, 6s, 7s, 8s, 9s, 10s and 20s). The generated test cases are part of the submission. The randoop output files can be found under the `randoop` folder. In order to distinguish between the different timings, the packages were named `exercise01_[time]s` rather than just `exercise01` (this package has been used for the tests that could be generated in 10 seconds).
 
-For the coverage analysis, we used *JaCoCo*[^1] again.
+For the coverage analysis, we used *JaCoCo*[1] again.
 
-## Question 1: Increase the time limit for test generation step by step to, for example, 20 seconds, 30 sec., 60 sec., 120 sec., etc. Measure the code coverage of the generated test cases for each generated set of tests. At what point do you reach the maximum coverage (plateau) where more generation time does not lead to an increase of coverage? What is the maximum coverage?
+## Question 1 
 
-The following table shows the results for the coverage[^2] -, as well as the mutation analysis:
+> Increase the time limit for test generation step by step to, for example, 20 seconds, 30 sec., 60 sec., 120 sec., etc. Measure the code coverage of the generated test cases for each generated set of tests. At what point do you reach the maximum coverage (plateau) where more generation time does not lead to an increase of coverage? What is the maximum coverage?
 
-| Time [s] | Code Coverage [%] | Mutation Score  | Total Instructions |
-|---------:|------------------:|-----------------:|------------------:|
-| 10       | 85.9              |                  | 159.859           |
-| 30       | 87.9              |                  | 434.482           |
-| 60       | 88.9              |                  | 783.883           |
-| 120      | 89.6              |                  | 1.259.428         |
-| 240      | 90.4              |                  | 2.334.648         |
-| 300      | 90.6              |                  | 2.703.000         |
-| 360      | 90.9              |                  | 3.363.333         |
-| 500      | 91.1              |                  | 4.358.351         |
-| 700      | 91.4              |                  | 5.496.704         |
-| 900      | 91.6              |                  | 6.958.180         |
-| 1200      |             |                  |          |
-| 1800      |               |                  |          |
+When performing the previous part of the assignment (generating for 10 seconds), we came to the conclusion that the coverage was already 100% and the mutation coverage was also already 90%. When trying to get a coverage less than 100%, we also noticed that the number of tests that can be generated is strongly dependent on the hardware that is used. Some of us own relatively new computers, whereas one team member happened to own a five year old computer. Because the old computer was the only one that managed to generate tests that did not have full coverage we used this one to generate tests and base the analysis on. This is also the reason why we decided to take a look at what happens in the range 1s - 20s rather than the times that are proposed for this assignment. After all, generating more tests cannot improve a 100% coverage...
 
-todo
+The table below summarises the code coverage and mutation score for the different generated tests.
 
-## Question 2: Does the achieved coverage and mutation score imply that the tested class is correct? Discuss this question in your group and explain why or why not.
+| Time [s] | Code Coverage [%] | Mutation Score [%] | Nr of Tests |
+|:--------:| -----------------:| ------------------:| -----------:|
+| 01       | 69.1              | 57                 | 107         |
+| 02       | 69.1              | 62                 | 176         |
+| 03       | 90.6              | 71                 | 223         |
+| 04       | 90.6              | 71                 | 261         |
+| 05       | 90.6              | 71                 | 296         |
+| 06       | 90.6              | 71                 | 323         |
+| 07       | 90.6              | 76                 | 355         |
+| 08       | 100.0             | 90                 | 438         |
+| 09       | 100.0             | 90                 | 480         |
+| 10       | 100.0             | 90                 | 526         |
+| 20       | 100.0             | 100                | 937         |
 
-to be discussed
+From this table it seems that there is no upper bound for the coverage in this case. There seems to be some kind of plateau at 3 seconds, but this is probably just because the time differences are too small, but when increasing the time for randoop, it turns out that the maximum coverage that can be achieved is 100%. Generating tests for longer than 20 seconds does not make sense, because from there on, both the coverage and the mutation score are 100%. Although we might have expected that hundred percent coverage is quasi impossible, it seems reasonable that this is nevertheless possible in such a simple case as the `RingBuffer`.
+
+## Question 2
+
+> Does the achieved coverage and mutation score imply that the tested class is correct? Discuss this question in your group and explain why or why not.
+
+With testing it is never possible to verify that a program is correct. The only thing that we can definitely say, is that the chances for the program to contain mistakes has become pretty small, when coverage **and** mutation score are 100%.
 
 # Assignment Part B: Model-based Testing for RingBuffer
 
-To Include the ModelJUnit libaray we are using a maven dependency.
+To Include the ModelJUnit libray we are using a maven dependency.
 
 ## Simple Model
 
@@ -65,7 +70,5 @@ Afterwards we tested the model with 20 testcases and it can be seen that the deq
 ![Coverage Check 0 Test Cases](images/02_20.PNG)
 
 
-[^1]:
+[1]:
 see <http://eclemma.org/jacoco> for further information.
-[^2]:
-in percent of the respective package, not for the overall project
