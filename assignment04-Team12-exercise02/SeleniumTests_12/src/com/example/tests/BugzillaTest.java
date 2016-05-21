@@ -21,7 +21,7 @@ public class BugzillaTest {
 
   @Test
   public void testBugzilla() throws Exception {
-    // Hoedt - 1556916 - assignment part A
+    // Pfoser/Mayer/Hoedt - Team 12 - part A
     driver.get(baseUrl + "bugzilla-4.4-branch/");
     assertTrue(isElementPresent(By.id("login_link_top")));
     driver.findElement(By.id("login_link_top")).click();
@@ -29,21 +29,17 @@ public class BugzillaTest {
     driver.findElement(By.id("Bugzilla_login_top")).sendKeys("mrtsjolder@gmail.com");
     driver.findElement(By.id("Bugzilla_password_top")).clear();
     driver.findElement(By.id("Bugzilla_password_top")).sendKeys("test123");
-    driver.findElement(By.id("Bugzilla_remember_top")).click();
     driver.findElement(By.id("log_in_top")).click();
     assertEquals("| Log out mrtsjolder@gmail.com", driver.findElement(By.xpath("//div[@id='header']/ul/li[9]")).getText());
     driver.findElement(By.id("enter_bug")).click();
     driver.findElement(By.linkText("All")).click();
     driver.findElement(By.linkText("MyOwnBadSelf")).click();
     new Select(driver.findElement(By.id("component"))).selectByVisibleText("comp2");
-    new Select(driver.findElement(By.id("rep_platform"))).selectByVisibleText("Sun");
-    new Select(driver.findElement(By.id("rep_platform"))).selectByVisibleText("Macintosh");
     driver.findElement(By.id("short_desc")).clear();
     driver.findElement(By.id("short_desc")).sendKeys("The wool of this sheep prevents my browser from loading");
     driver.findElement(By.id("comment")).clear();
     driver.findElement(By.id("comment")).sendKeys("I was playing around a bit with myownbadself and chrome did not want to start anymore");
     driver.findElement(By.id("commit")).click();
-    new Select(driver.findElement(By.id("resolution"))).selectByVisibleText("");
     assertEquals("I was playing around a bit with myownbadself and chrome did not want to start anymore", driver.findElement(By.id("comment_text_0")).getText());
     assertEquals("The wool of this sheep prevents my browser from loading", driver.findElement(By.id("short_desc_nonedit_display")).getText());
     assertEquals("NEW (edit)", driver.findElement(By.id("static_bug_status")).getText());
