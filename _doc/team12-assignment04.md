@@ -19,11 +19,11 @@ Because we considered a bit of a strange thing to mention only one person in the
 
 # Assignment Part B: Running Web Tests as JUnit Tests
 
-Again after some setup, we managed to get the recorded test into a useable `JUnit` test in the `SeleniumTests_12` directory with `Selenium WebDriver`. After having removed some useless methods and imports, the result should look like `BugzillaTest.java` which can be found under `assignment04-Team12-exercise02`.
+Again after some setup, we managed to get the recorded test into a usable `JUnit` test in the `SeleniumTests_12` directory with `Selenium WebDriver`. After having removed some useless methods and imports, the result should look like `BugzillaTest.java` which can be found under `assignment04-Team12-exercise02`.
 
 # Assignment Part C: Page Object Pattern for Web Testing
 
-For the third part of this assignment, we created a total of six `PageObject`s to clean up the existing `JUnit` test. Each of these `PageObjects` provides functionality to interact with each page that appears during the test sequences (and nothing more). Creating the extra tests by means of these `PageObjects` is in the end quite a convenient task and makes it obvious why it does make sense to use this pattern. Together with the `PageFactory`, it is possible to write clean and readable tests. Because comments were graded in a negative way last time, they have been ommitted. The resulting tests and `PageObjects` reside unter `assignment04-Team12-exercise03` in a project with the same name as in part B of this assignment.
+For the third part of this assignment, we created a total of six `PageObject`s to clean up the existing `JUnit` test. Each of these `PageObjects` provides functionality to interact with each page that appears during the test sequences (and nothing more). Creating the extra tests by means of these `PageObjects` is in the end quite a convenient task and makes it obvious why it does make sense to use this pattern. Together with the `PageFactory`, it is possible to write clean and readable tests. Because comments were graded in a negative way last time, they have been omitted. The resulting tests and `PageObjects` reside under `assignment04-Team12-exercise03` in a project with the same name as in part B of this assignment.
 
 # Assignment Part D (OPTIONAL): Model-based System Testing
 
