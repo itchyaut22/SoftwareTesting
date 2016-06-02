@@ -3,12 +3,17 @@ package com.example.tests.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class BugzillaShowBugPage {
 	
 	public enum State { NEW, ASSIGNED, RESOLVED, UNCONFIRMED, REOPENED, VERIFIED, CLOSED };
+	
+	private WebDriver driver;
 
+	@FindBy(linkText = "Home")
+	private WebElement homeLink;
 	@FindBy(css = "b")
 	private WebElement bugId;
 	@FindBy(id = "short_desc_nonedit_display")
@@ -25,6 +30,8 @@ public class BugzillaShowBugPage {
 	private WebElement addToCC;
 	
 	public BugzillaShowBugPage(WebDriver driver) throws IllegalStateException {
+		this.driver = driver;
+		
 		if (!driver.getTitle().startsWith("Bug "))
 			throw new IllegalStateException("This is not a bug overview page");
 	}
@@ -58,6 +65,11 @@ public class BugzillaShowBugPage {
 		saveStatusButton.click();
 		
 		return this;
+	}
+	
+	public BugzillaHomePage goToHomepage() {
+		homeLink.click();
+		return PageFactory.initElements(driver, BugzillaHomePage.class);
 	}
 
 }
