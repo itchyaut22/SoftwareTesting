@@ -21,7 +21,7 @@ public class RingBuffer<Item> implements Iterable<Item> {
 
     // cast needed since no generic array creation in Java
     public RingBuffer(int capacity) {
-        a = (Item[]) new Object[capacity];
+//        a = (Item[]) new Object[capacity];
     }
 
     public boolean isEmpty() { return N == 0; }
@@ -59,4 +59,3 @@ public class RingBuffer<Item> implements Iterable<Item> {
     }
 
 }
-
