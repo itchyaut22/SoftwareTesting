@@ -1,27 +1,47 @@
-# Preface : Setting up the Test Environment
+# Assignment Part A: Static Analysis for the RingBuffer
 
-Because it was not possible to set up a local Bugzilla server, we decided to give [4.4 branch on landfill](https://landfill.bugzilla.org/bugzilla-4.4-branch/) a chance.
+## *PMD*
 
-# Assignment Part A: Capture & Replay with Selenium IDE
+./run.sh pmd -dir /Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java -f text -rulesets java-basic,java-design,java-unusedcode
 
-After having installed Selenium IDE, we recorded the tests step for step as described in the assignment. Concretely, this means we followed the following steps:
+RingBuffer.java:24:  Avoid unused constructor parameters such as 'capacity'.
 
-  1. Get to the main page of the server
-  2. **Assert** that there was no login yet
-  3. log in
-  4. **Assert** that the login was successful
-  5. (choose a classification and a product)
-  6. (choose a component of the product)
-  7. Submit a new bug with *Summary* and *Description*
-  8. **Check** the *Status*, *Summary* and *Description*
 
-Because we considered a bit of a strange thing to mention only one person in the comments, we chose a slightly different format - i.e. *last names*, *group number*, *exercise letter*. The recorded test can be found under `assignment04-Team12-exercise01` as `BugzillaTest.html`.
+dyn-eduroam184238:bin martin$ ./run.sh pmd -dir /Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java -f text -rulesets java-basic,java-design,java-unusedcode,java-imports,java-finalizers,java-unnecessary,java-naming,java-optimizations,java-empty
 
-# Assignment Part B: Running Web Tests as JUnit Tests
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:17:   Generics names should be a one letter long and upper case.
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:18:   Avoid variables with short names like a
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:19:   Avoid using redundant field initializer for 'N'
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:19:   Avoid variables with short names like N
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:19:   The field name indicates a constant but its modifiers do not
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:19:   Variables should start with a lowercase character, 'N' starts with uppercase character.
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:20:   Avoid using redundant field initializer for 'first'
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:21:   Avoid using redundant field initializer for 'last'
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:24:   Avoid unused constructor parameters such as 'capacity'.
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:24:   Parameter 'capacity' is not assigned and could be declared final
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:31:   Parameter 'item' is not assigned and could be declared final
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:41:   Local variable 'item' could be declared final
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:52:   Avoid using redundant field initializer for 'i'
+/Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java:52:   Avoid variables with short names like i
 
-Again after some setup, we managed to get the recorded test into a usable `JUnit` test in the `SeleniumTests_12` directory with `Selenium WebDriver`. After having removed some useless methods and imports, the result should look like `BugzillaTest.java` which can be found under `assignment04-Team12-exercise02`.
 
-# Assignment Part C: Page Object Pattern for Web Testing
+./run.sh pmd -dir /Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java -f text -rulesets java-basic,java-design,java-unusedcode,java-imports,java-finalizers,java-unnecessary,java-naming,java-optimizations,java-empty,java-comments
 
-For the third part of this assignment, we created a total of six `PageObject`s to clean up the existing `JUnit` test. Each of these `PageObjects` provides functionality to interact with each page that appears during the test sequences (and nothing more). Creating the extra tests by means of these `PageObjects` is in the end quite a convenient task and makes it obvious why it does make sense to use this pattern. Together with the `PageFactory`, it is possible to write clean and readable tests. Because comments were graded in a negative way last time, they have been omitted. The resulting tests and `PageObjects` reside under `assignment04-Team12-exercise03` in a project with the same name as in part B of this assignment.
 
+/Users/martin/Downloads/pmd-bin-5.4.2/bin
+
+./run.sh pmd -dir /Users/martin/Documents/workspace/SoftwareTesting/assignment05-Team12-exercise01/src/team12/RingBuffer.java -f html -rulesets java-basic,java-design,java-unusedcode,java-imports,java-finalizers,java-unnecessary,java-naming,java-optimizations,java-empty,java-comments -r result.html
+
+## *FindBugs*
+
+## Discussion
+
+### How many violations are detected by PMD and by FindBugs?
+
+### What is the indicated severity of the detected violations (called “priority” or “rank”).
+
+### Are the detected violations real defects, warnings about potential defects or false alarms? (Include examples for the different categories in your answer.)
+
+### Which tool would you use in which situation in a software project?
+
+### What is the effort involved for using static analysis tools?

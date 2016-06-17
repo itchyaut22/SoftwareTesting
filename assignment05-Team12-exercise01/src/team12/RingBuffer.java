@@ -1,3 +1,4 @@
+package team12;
 /*************************************************************************
  *  Compilation:  javac RingBuffer.java
  *  Execution:    java RingBuffer
@@ -21,7 +22,7 @@ public class RingBuffer<Item> implements Iterable<Item> {
 
     // cast needed since no generic array creation in Java
     public RingBuffer(int capacity) {
-        a = (Item[]) new Object[capacity];
+        //a = (Item[]) new Object[capacity];
     }
 
     public boolean isEmpty() { return N == 0; }
