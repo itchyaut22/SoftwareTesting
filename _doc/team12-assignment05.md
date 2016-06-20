@@ -31,12 +31,10 @@ Using that much rule sets leads to a bunch of found problems. We let PMD generat
         java-optimizations,java-empty
         -r result.html
 
-The HTML-report, as well as the .csv-report can be found in the 
-\newline `assignment05-Team12-exercise01/doc/` folder.
+The HTML-report, as well as the .csv-report can be found in the `assignment05-Team12-exercise01/doc/` folder.
 
 ![PMD HTML report](images/img01.png)
 
-\newpage
 ## *FindBugs*
 
 FindBugs is another static analysis analysis tool designed to find bugs in Java programs. Concretely, it looks for pieces of code that match specific patterns that are likely to be an error. Here, we used version 3.0.1 of FindBugs through the [Eclipse plugin](http://findbugs.sourceforge.net/manual/eclipse.html) to do the static analysis.
