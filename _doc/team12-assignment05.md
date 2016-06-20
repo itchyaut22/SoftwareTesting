@@ -53,7 +53,6 @@ Each of these bugs comes with a more detailed description which can be retrieved
 
 Eventually, there is also the possibility to generate a complete xml report for the project. This has been appended in `assignment05-Team12-exercise01/doc/findbugs-result.xml`.
 
-\newpage
 ## Discussion
 
 > *How many violations are detected by PMD and by FindBugs?*
