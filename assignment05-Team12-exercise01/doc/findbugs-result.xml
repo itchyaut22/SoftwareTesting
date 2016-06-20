@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1466371089747" analysisTimestamp="1466371087885" release="">
+  <Project projectName="Assignment05-Team12-exercise01">
+    <Jar>/Users/pieterjan/Documents/Software Testing/Assignments/assignment5/SoftwareTesting/assignment05-Team12-exercise01/target/test-classes</Jar>
+    <Jar>/Users/pieterjan/Documents/Software Testing/Assignments/assignment5/SoftwareTesting/assignment05-Team12-exercise01/target/classes</Jar>
+    <AuxClasspathEntry>/Users/pieterjan/Documents/Software Testing/Assignments/assignment5/SoftwareTesting/assignment05-Team12-exercise01/target/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/pieterjan/Documents/Software Testing/Assignments/assignment5/SoftwareTesting/assignment05-Team12-exercise01/target/test-classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/pieterjan/.m2/repository/junit/junit/4.10/junit-4.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/pieterjan/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/rt.jar</AuxClasspathEntry>
+    <SrcDir>/Assignment05-Team12-exercise01/test</SrcDir>
+    <SrcDir>/Users/pieterjan/Documents/Software Testing/Assignments/assignment5/SoftwareTesting/assignment05-Team12-exercise01/src</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <BugInstance type="NP_UNWRITTEN_FIELD" priority="2" rank="8" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="RingBuffer">
+      <SourceLine classname="RingBuffer" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Class>
+    <Method classname="RingBuffer" name="dequeue" signature="()Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="RingBuffer" start="39" end="44" startBytecode="0" endBytecode="173" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Method>
+    <Field classname="RingBuffer" name="a" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="RingBuffer" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Field>
+    <SourceLine classname="RingBuffer" start="40" end="40" startBytecode="25" endBytecode="25" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    <SourceLine classname="RingBuffer" start="40" end="40" startBytecode="25" endBytecode="25" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+  </BugInstance>
+  <BugInstance type="NP_UNWRITTEN_FIELD" priority="2" rank="8" abbrev="NP" category="CORRECTNESS" first="1">
+    <Class classname="RingBuffer">
+      <SourceLine classname="RingBuffer" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Class>
+    <Method classname="RingBuffer" name="enqueue" signature="(Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="RingBuffer" start="31" end="35" startBytecode="0" endBytecode="163" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Method>
+    <Field classname="RingBuffer" name="a" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="RingBuffer" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Field>
+    <SourceLine classname="RingBuffer" start="31" end="31" startBytecode="8" endBytecode="8" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    <SourceLine classname="RingBuffer" start="31" end="31" startBytecode="8" endBytecode="8" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+  </BugInstance>
+  <BugInstance type="UWF_UNWRITTEN_FIELD" priority="2" rank="12" abbrev="UwF" category="CORRECTNESS" first="1">
+    <Class classname="RingBuffer">
+      <SourceLine classname="RingBuffer" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Class>
+    <Field classname="RingBuffer" name="a" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="RingBuffer" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+    </Field>
+    <SourceLine classname="RingBuffer" start="31" end="31" startBytecode="5" endBytecode="5" sourcefile="RingBuffer.java" sourcepath="RingBuffer.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Sun, 12 Jun 2016 20:32:41 +0200" total_classes="3" referenced_classes="41" total_bugs="3" total_size="50" num_packages="1" java_version="1.8.0_65" vm_version="25.65-b01" cpu_seconds="76.05" clock_seconds="398.37" peak_mbytes="476.22" alloc_mbytes="910.50" gc_seconds="2.47" priority_2="3">
+    <PackageStats package="" total_bugs="3" total_types="3" total_size="50" priority_2="3">
+      <ClassStats class="RingBuffer" sourceFile="RingBuffer.java" interface="false" size="33" bugs="3" priority_2="3"/>
+      <ClassStats class="RingBuffer$RingBufferIterator" sourceFile="RingBuffer.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="RingBufferException" sourceFile="RingBufferException.java" interface="false" size="4" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="497" invocations="2" avgMicrosecondsPerInvocation="248613" maxMicrosecondsPerInvocation="257205" standardDeviationMircosecondsPerInvocation="8592"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="245" invocations="485" avgMicrosecondsPerInvocation="505" maxMicrosecondsPerInvocation="21331" standardDeviationMircosecondsPerInvocation="1263"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="130" invocations="41" avgMicrosecondsPerInvocation="3184" maxMicrosecondsPerInvocation="24699" standardDeviationMircosecondsPerInvocation="5477"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="98" invocations="139" avgMicrosecondsPerInvocation="706" maxMicrosecondsPerInvocation="5605" standardDeviationMircosecondsPerInvocation="807"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="94" invocations="41" avgMicrosecondsPerInvocation="2295" maxMicrosecondsPerInvocation="18586" standardDeviationMircosecondsPerInvocation="4146"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="67" invocations="487" avgMicrosecondsPerInvocation="139" maxMicrosecondsPerInvocation="2741" standardDeviationMircosecondsPerInvocation="253"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="62" invocations="13" avgMicrosecondsPerInvocation="4801" maxMicrosecondsPerInvocation="59267" standardDeviationMircosecondsPerInvocation="15724"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="51" invocations="41" avgMicrosecondsPerInvocation="1252" maxMicrosecondsPerInvocation="13123" standardDeviationMircosecondsPerInvocation="2460"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="44" invocations="64" avgMicrosecondsPerInvocation="694" maxMicrosecondsPerInvocation="23890" standardDeviationMircosecondsPerInvocation="2988"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="36" invocations="41" avgMicrosecondsPerInvocation="893" maxMicrosecondsPerInvocation="16205" standardDeviationMircosecondsPerInvocation="2590"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="34" invocations="41" avgMicrosecondsPerInvocation="840" maxMicrosecondsPerInvocation="13529" standardDeviationMircosecondsPerInvocation="2176"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="29" invocations="446" avgMicrosecondsPerInvocation="65" maxMicrosecondsPerInvocation="1030" standardDeviationMircosecondsPerInvocation="110"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1466371089745" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>
